@@ -1,0 +1,22 @@
+.whisper-ingest-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 2em;
+}
+
+.whisper-ingest-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.whisper-ingest-form > * {
+  width: 100%;
+}
+
+.whisper-tweeter-user-help {
+  max-width: 50px;
+  max-height: 50px;
+  align-self: center;
+  margin-bottom: 2em;
+}

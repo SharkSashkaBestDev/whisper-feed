@@ -1,0 +1,27 @@
+table {
+  width: 100%;
+}
+
+.whisper-db-tweets-wrapper {
+  margin: 2em;
+  margin-bottom: 5.5em;
+}
+
+.whisper-db-tweets-col-id-val {
+  text-align: center;
+}
+
+.whisper-db-tweets-col-id-val {
+  color: darkblue;
+}
+
+.invisible {
+  display: none;
+}
+
+.whisper-db-remove-selected-btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1em;
+}

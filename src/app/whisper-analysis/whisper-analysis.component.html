@@ -1,0 +1,48 @@
+<div class="whisper-analysis-wrapper">
+  <mat-progress-bar class="whisper-analysis-progress" mode="indeterminate" [ngClass]="loading ? '' : 'hidden'"></mat-progress-bar>
+
+  <form class="whisper-analysis-form flex-centered">
+    <mat-form-field class="right-spacing">
+      <input matInput placeholder="Company Ticker" aria-label="Company Ticker" [matAutocomplete]="auto" [formControl]="companyCtrl">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let company of filteredCompanies | async" [value]="company.name" (click)="tickerChange($event)">
+          <span>{{company.ticker}}</span> |
+          <span>{{company.name}}</span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field class="right-small-spacing date-field">
+      <input matInput [matDatepicker]="fromPicker" placeholder="Choose from date" [(ngModel)]="fromDate" name="fromDate">
+      <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+      <mat-datepicker #fromPicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="time-field">
+      <input matInput atp-time-picker placeholder="Choose from time" [(ngModel)]="fromTime" name="fromTime"/>
+    </mat-form-field>
+
+    <mat-icon class="centered-icon">remove</mat-icon>
+
+    <mat-form-field class="right-small-spacing date-field">
+      <input matInput [matDatepicker]="toPicker" placeholder="Choose to date" [(ngModel)]="toDate" name="toDate">
+      <mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
+      <mat-datepicker #toPicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="time-field">
+      <input matInput atp-time-picker placeholder="Choose to time" [(ngModel)]="toTime" name="toTime"/>
+    </mat-form-field>
+  </form>
+
+  <div style="display: block">
+    <canvas mdbChart
+            [chartType]="chartType"
+            [datasets]="chartDatasets"
+            [labels]="chartLabels"
+            [colors]="chartColors"
+            [options]="chartOptions"
+            [legend]="true"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)">
+    </canvas>
+  </div>
+</div>

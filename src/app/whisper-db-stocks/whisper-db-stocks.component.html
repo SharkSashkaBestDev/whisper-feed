@@ -1,0 +1,74 @@
+<div class="whisper-db-stocks-wrapper">
+  <mat-form-field class="full-width">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" (matSortChange)="onSort($event)">
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()"
+                      [aria-label]="checkboxLabel()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)"
+                      [aria-label]="checkboxLabel(row)">
+        </mat-checkbox>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="invisible"> # </th>
+      <td mat-cell *matCellDef="let element" class="invisible"> {{element.position}} </td>
+      <td mat-footer-cell *matFooterCellDef> Selected </td>
+    </ng-container>
+
+    <!-- Ticker Column -->
+    <ng-container matColumnDef="ticker">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="whisper-db-stocks-col-id"> Ticker </th>
+      <td mat-cell *matCellDef="let element" class="whisper-db-stocks-col-id-val"> {{element.ticker}} </td>
+      <td mat-footer-cell *matFooterCellDef> {{getTotalSelected()}} </td>
+    </ng-container>
+
+    <!-- Open Column -->
+    <ng-container matColumnDef="open">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> Open </th>
+      <td mat-cell *matCellDef="let element"> {{element.open}} </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- Close Column -->
+    <ng-container matColumnDef="close">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> Close </th>
+      <td mat-cell *matCellDef="let element"> {{element.close}} </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <!-- Date Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+  </table>
+
+  <div class="whisper-db-remove-selected-btn-wrapper">
+    <button mat-raised-button color="warn" [disabled]="(selection && !selection.selected.length) || !selection"
+            (click)="removeSelected()">
+      Remove selected
+    </button>
+  </div>
+
+</div>
+

@@ -1,0 +1,28 @@
+<div class="footer-wrapper">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>WhisperFeed Footer</span>
+      <span class="whisper-spacer"></span>
+      <mat-icon class="whisper-toolbar-icon clickable" aria-hidden="false" aria-label="Footer info icon">live_help</mat-icon>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Footer main menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="refreshPage()">
+      <mat-icon>refresh</mat-icon>
+      <span>Refresh</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
+      <span>Check voice mail</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+  </mat-menu>
+</div>
+

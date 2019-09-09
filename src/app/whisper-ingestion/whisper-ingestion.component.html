@@ -1,0 +1,27 @@
+<div class="whisper-ingest-wrapper">
+
+  <div class="whisper-ingest-form">
+    <mat-form-field>
+      <mat-label>Tweets Count</mat-label>
+      <mat-select [(value)]="selectedTweetsCount">
+        <mat-option *ngFor="let tweetsCount of availableTweetsCounts" [value]="tweetsCount.value">
+          {{tweetsCount.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>User Id</mat-label>
+      <textarea matInput
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="5"
+                [(ngModel)]="userId"></textarea>
+    </mat-form-field>
+
+    <mat-button-toggle class="whisper-tweeter-user-help" (click)="openUserLookupDialog()"><mat-icon>live_help</mat-icon></mat-button-toggle>
+
+    <button mat-raised-button color="primary" (click)="getUserTweets()">Get Tweets</button>
+  </div>
+
+</div>

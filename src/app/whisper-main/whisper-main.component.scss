@@ -1,0 +1,13 @@
+.whisper-main-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.disabled {
+  display: none !important;
+}
+
+.whisper-menu-item {
+  width: 10em;
+}

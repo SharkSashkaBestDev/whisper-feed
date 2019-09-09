@@ -1,0 +1,43 @@
+<div class="whisper-db-wrapper">
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      <button mat-raised-button color="accent"
+              [matBadge]="usersCount" matBadgePosition="above after" matBadgeColor="primary"
+              [routerLink]="'/db/users'">
+        Users
+      </button>
+    </mat-list-item>
+
+    <mat-list-item role="listitem">
+      <button mat-raised-button color="accent"
+              [matBadge]="tweetsCount" matBadgePosition="above after" matBadgeColor="primary"
+              [routerLink]="'/db/tweets'">
+        Tweets
+      </button>
+    </mat-list-item>
+
+    <mat-list-item role="listitem">
+      <button mat-raised-button color="accent"
+              [matBadge]="analysedTweetsCount" matBadgePosition="above after" matBadgeColor="primary"
+              [routerLink]="'/db/tweets/analysed'">
+        Analysed tweets
+      </button>
+    </mat-list-item>
+
+    <mat-list-item role="listitem">
+      <button mat-raised-button color="accent"
+              [matBadge]="companiesCount" matBadgePosition="above after" matBadgeSize="medium" matBadgeColor="primary"
+              [routerLink]="'/db/companies'">
+        Companies
+      </button>
+    </mat-list-item>
+
+    <mat-list-item role="listitem">
+      <button mat-raised-button color="accent"
+              [matBadge]="stocksCount" matBadgePosition="above after" matBadgeSize="medium" matBadgeColor="primary"
+              [routerLink]="'/db/stocks'">
+        Stocks
+      </button>
+    </mat-list-item>
+  </mat-list>
+</div>

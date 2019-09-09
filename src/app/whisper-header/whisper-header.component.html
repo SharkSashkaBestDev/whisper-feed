@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-raised-button aria-label="Back to main page button" class="whisper-back-button" color="warn" (click)="goBack()" [disabled]="!isBackRouteLinkAvailable()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+
+    <a class="whisper-main-header" [routerLink]="'/'">WhisperFeed Header</a>
+
+    <span class="whisper-spacer"></span>
+
+    <mat-icon class="whisper-toolbar-icon clickable" aria-hidden="false" aria-label="Header info icon">info</mat-icon>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Header main menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="refreshPage()">
+    <mat-icon>refresh</mat-icon>
+    <span>Refresh</span>
+  </button>
+  <mat-slide-toggle
+    class="whisper-notifications-toggle"
+    color="primary"
+    (change)="notificationsAvailabilityChanged()"
+    [(ngModel)]="notificationsEnabled">
+    Notifications
+  </mat-slide-toggle>
+<!--  <button mat-menu-item disabled>-->
+<!--    <mat-icon>voicemail</mat-icon>-->
+<!--    <span>Check voice mail</span>-->
+<!--  </button>-->
+  <button mat-menu-item>
+    <mat-icon>notifications_off</mat-icon>
+    <span>Disable alerts</span>
+  </button>
+</mat-menu>

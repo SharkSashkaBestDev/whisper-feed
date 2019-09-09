@@ -1,0 +1,16 @@
+.whisper-users-list {
+  max-height: 3em;
+  overflow-y: scroll;
+  padding-top: 0;
+}
+
+.centered-content {
+  display: flex;
+  justify-content: center;
+}
+
+.whisper-user-screen-name {
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: larger;
+}

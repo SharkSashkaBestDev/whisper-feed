@@ -1,0 +1,27 @@
+<form (keydown)="keyDownFunction($event)">
+  <h1 mat-dialog-title>Find user by screen name</h1>
+
+  <div mat-dialog-content class="centered">
+    <p class="centered">Enter user screen name</p>
+
+    <mat-form-field class="full-width">
+      <input matInput [(ngModel)]="data.screenName" name="screen_name">
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary" (click)="lookupUser()">Find User</button>
+  </div>
+
+  <div mat-dialog-actions class="centered-content">
+    <mat-list role="list" class="whisper-users-list full-width">
+      <mat-list-item *ngFor="let user of users" role="listitem" [mat-dialog-close]="user.id">
+        <img class="whisper-user-avatar" alt="User avatar" mat-list-icon [src]="user.profile_image_url"/>
+        <div class="full-width centered whisper-user-screen-name">
+          {{user.screen_name}}
+        </div>
+      </mat-list-item>
+    </mat-list>
+
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+  </div>
+</form>
+

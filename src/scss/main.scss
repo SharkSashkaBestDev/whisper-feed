@@ -1,0 +1,48 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'whisper-theme';
+
+body {
+  margin: 0;
+}
+
+.whisper-spacer {
+  flex: 1 1 auto;
+}
+
+.whisper-toolbar-icon {
+  padding: 0 14px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.whisper-back-button {
+  position: absolute !important;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.flex-centered {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.mat-badge-content.mat-badge-active {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 8pt;
+}
+
+.centered {
+  text-align: center;
+}
+
+/* Additional specific styles */
+.whisper-db-tweets-col-id .mat-sort-header-container {
+  justify-content: center;
+}
