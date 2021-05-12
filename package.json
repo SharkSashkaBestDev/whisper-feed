@@ -24,7 +24,7 @@
     "amazing-time-picker": "^1.8.0",
     "angular-bootstrap-md": "^8.2.0",
     "body-parser": "^1.19.0",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "chartjs-plugin-datalabels": "^0.6.0",
     "core-js": "^2.5.4",
     "cors": "^2.8.5",
